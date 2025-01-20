@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket POS System</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: papayawhip;
+    border-radius: 8px;
+    box-shadow: 8px 8px 10px rgba(116, 37, 207, 0.973);
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.product-list, .cart {
+    width: 55%;
+}
+
+.product {
+    background-color: #f9f9f928;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(255, 0, 119);
+    box-shadow: 5px 9px 8px rgb(72, 184, 21);
+}
+
+.product img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.product span {
+    flex: 1;
+}
+
+.product input[type="number"] {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.product button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background-color: #218838;
+}
+
+.cart {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+}
+h1{
+    text-shadow: 3px 0px rgb(41, 44, 204);
+}
+.cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#checkout {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+#checkout:hover {
+    background-color: #0056b3;
+}
+    .img1{
+        position: relative;
+        right: 20%;
+        top: 30%;
+        display: inline-block;
+        margin-top: 19%;
+    }
+    h1{
+        padding: 10px;
+        color: orange;
+    }
+    button{
+        border-radius: 4px;
+        width: 150px;
+    }
+    button:hover{
+        background-color: #346b41;
+    }
+    input{
+        position: relative;
+        top: -9px;
+    }
+    #amount{
+        padding: 20px;
+        margin: 10px;
+        position: relative;
+        border-radius: 6px;
+        background-color: #f4f4f4;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Supermarket POS System</h1>
+        <img class="img1"  src="28210.jpg" alt="" width="200" height="200" >
+        <!-- Product List -->
+        <div class="product-list">
+            <h2>Available Products</h2>
+            <div class="product" >
+                <h1>food</h1>
+                <span><select name="" id="">
+                   <option value="">bread</option>
+                   <option value="">chillies</option>
+                   <option value="">tomato</option>
+                   <option value="">burger</option>
+                   <option value="">tumeric</option>
+                   <option value="">milk</option>
+                   <option value="">baking floor</option>
+                   <option value="">soda</option>
+                   <option value="">creme</option>
+                </select><input id="amount" type="text"></span>
+                <input type="number" value="1" min="1" class="quantity" />
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h1>Drinks</h1>
+                <span><select name="" id="">
+                    <option value="">capucino</option>
+                    <option value="">cocktail</option>
+                    <option value="">amarula</option>
+                    <option value="">guarana</option>
+                    <option value="">coke</option>
+                    <option value="">yoghurt</option>
+                    <option value="">ice</option>
+                    <option value="">johny walker</option>
+                    <option value="">kenyakeen</option>
+                    <option value="">swefty</option>
+                </select><input id="amount" type="text"></span>
+                <input type="number" value="1" min="1" class="quantity" />
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h1>Groceries</h1>
+                <span><select>
+                    <option value="">carrot</option>
+                    <option value="">cabbage</option>
+                    <option value="">kales</option>
+                    <option value="">spinach</option>
+                    <option value="">watermelon</option>
+                    <option value="">pumkin</option>
+                    <option value="">locals</option>
+                    <option value="">tomatoes</option>
+                    <option value="">onions</option>
+                    <option value="">mangoes</option>
+                </select> <input id="amount" type="text"></span>
+                <input type="number" value="1" min="1" class="quantity" />
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Add more products here -->
+        </div>
+
+        <!-- Cart -->
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </ul>
+            <p>Subtotal: <span id="subtotal">Ksh:0.00</span></p>
+            <p>Tax (10%):<span id="tax">Ksh:0.00</span></p>
+            <p>Total: <span id="total"> Ksh:0.00</span></p>
+            <button id="checkout">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the elements
+const cartItemsContainer = document.getElementById("cart-items");
+const subtotalElement = document.getElementById("subtotal");
+const taxElement = document.getElementById("tax");
+const totalElement = document.getElementById("total");
+const checkoutButton = document.getElementById("checkout");
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+let cart = [];
+
+// Function to update the cart display
+function updateCart() {
+    // Clear the current list of items
+    cartItemsContainer.innerHTML = "";
+
+    // Add the items from the cart
+    let subtotal = 0;
+    cart.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `${item.name} - $${item.price} x ${item.quantity}
+            <button class="remove-item" data-id="${item.id}">Remove</button>`;
+        cartItemsContainer.appendChild(listItem);
+        subtotal += item.price * item.quantity;
+    });
+
+    // Update the subtotal, tax, and total
+    const tax = subtotal * 0.1; // 10% tax
+    const total = subtotal + tax;
+    subtotalElement.textContent = subtotal.toFixed(2);
+    taxElement.textContent = tax.toFixed(2);
+    totalElement.textContent = total.toFixed(2);
+}
+
+// Function to handle adding items to the cart
+function addToCart(product) {
+    const quantityInput = document.querySelector(`.product[data-id="${product.id}"] .quantity`);
+    const quantity = parseInt(quantityInput.value);
+
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        cart.push({ ...product, quantity });
+    }
+
+    updateCart();
+}
+
+// Function to handle removing items from the cart
+function removeItem(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCart();
+}
+
+// Event listeners for adding products to the cart
+addToCartButtons.forEach(button => {
+    button.addEventListener("click", function () {
+        const productElement = button.closest(".product");
+        const product = {
+            id: parseInt(productElement.getAttribute("data-id")),
+            name: productElement.getAttribute("data-name"),
+            price: parseFloat(productElement.getAttribute("data-price"))
+        };
+        addToCart(product);
+    });
+});
+
+// Event listener for removing items from the cart
+cartItemsContainer.addEventListener("click", function (event) {
+    if (event.target.classList.contains("remove-item")) {
+        const productId = parseInt(event.target.getAttribute("data-id"));
+        removeItem(productId);
+    }
+});
+
+// Event listener for the checkout button
+checkoutButton.addEventListener("click", function () {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+    } else {
+        const cartSummary = cart.map(item => `${item.name} x ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`).join("\n");
+        alert(`Checkout Summary:\n\n${cartSummary}\n\nSubtotal: $${subtotalElement.textContent}\nTax (10%): $${taxElement.textContent}\nTotal: $${totalElement.textContent}`);
+        cart = [];
+        updateCart();
+    }
+});
+
+    </script>
+</body>
+</html>
